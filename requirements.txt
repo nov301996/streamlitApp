@@ -1,1 +1,6 @@
 IPython==7.12.0
+numpy
+nltk
+wand
+pytesseract
+PIL
