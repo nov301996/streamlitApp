@@ -82,33 +82,37 @@ def main():
 
         if submit_search:
             if(keyword in ['Data Mining']):
-                video1 = YouTubeVideo("VsYKqOokgaE")
-                video2 = YouTubeVideo("4l4_BREP6ZI")
-                video3 = YouTubeVideo("ZRZHwn")
-                video4 = YouTubeVideo("bvWDe0z45-E")
-                video5 = YouTubeVideo("6P7ceHFuG-o")
-                video6 = YouTubeVideo("9OjRP0ZLKkk")
-                video7 = YouTubeVideo("VcPWL9Nlozs")
-                video8 = YouTubeVideo("aMfzqHNsLug")
+                #video1 = YouTubeVideo("VsYKqOokgaE")
+                #video2 = YouTubeVideo("4l4_BREP6ZI")
+                #video3 = YouTubeVideo("ZRZHwn")
+                #video4 = YouTubeVideo("bvWDe0z45-E")
+                #video5 = YouTubeVideo("6P7ceHFuG-o")
+                #video6 = YouTubeVideo("9OjRP0ZLKkk")
+                #video7 = YouTubeVideo("VcPWL9Nlozs")
+                #video8 = YouTubeVideo("aMfzqHNsLug")
+                st.video("https://www.youtube.com/watch?v=6P7ceHFuG-o&list=PLLspfyoOYoQcI6Nno3gPkq0h5YSe81hsc&index=12")
+                st.video("https://www.youtube.com/watch?v=aMfzqHNsLug&list=PLLspfyoOYoQcI6Nno3gPkq0h5YSe81hsc&index=34")
 
-                st.markdown(JOB_HTML_TEMPLATE_8.format(display(video1), display(video2), display(video3), display(video4),display(video5), display(video6), display(video7), display(video8)),unsafe_allow_html=True)
+                #st.markdown(JOB_HTML_TEMPLATE_8.format(display(video1), display(video2), display(video3), display(video4),display(video5), display(video6), display(video7), display(video8)),unsafe_allow_html=True)
 
 
             if(keyword in ['Data Mining','clustering']):
-                video9 = YouTubeVideo("9OjRP0ZLKkk")
-                video10 = YouTubeVideo("VcPWL9Nlozs")
-                video11 = YouTubeVideo("aMfzqHNsLug")
+                #video9 = YouTubeVideo("9OjRP0ZLKkk")
+                #video10 = YouTubeVideo("VcPWL9Nlozs")
+                #video11 = YouTubeVideo("aMfzqHNsLug")
+                st.video("https://www.youtube.com/watch?v=aMfzqHNsLug&list=PLLspfyoOYoQcI6Nno3gPkq0h5YSe81hsc&index=34")
 
-                st.markdown(JOB_HTML_TEMPLATE_3.format(display(video9), display(video10), display(video11)), unsafe_allow_html=True)
+                #st.markdown(JOB_HTML_TEMPLATE_3.format(display(video9), display(video10), display(video11)), unsafe_allow_html=True)
 
             if(keyword in ['Data Mining', 'Decision Tree']):
-                video12 = YouTubeVideo("VsYKqOokgaE")
-                video13 = YouTubeVideo("4l4_BREP6ZI")
-                video14 = YouTubeVideo("ZRZHwn")
-                video15 = YouTubeVideo("bvWDe0z45-E")
-                video16 = YouTubeVideo("6P7ceHFuG-o")
+                #video12 = YouTubeVideo("VsYKqOokgaE")
+                #video13 = YouTubeVideo("4l4_BREP6ZI")
+                #video14 = YouTubeVideo("ZRZHwn")
+                #video15 = YouTubeVideo("bvWDe0z45-E")
+                #video16 = YouTubeVideo("6P7ceHFuG-o")
+                st.video("https://www.youtube.com/watch?v=6P7ceHFuG-o&list=PLLspfyoOYoQcI6Nno3gPkq0h5YSe81hsc&index=12")
 
-                st.markdown(JOB_HTML_TEMPLATE_4.format(display(video12), display(video13), display(video14), display(video15), display(video16)), unsafe_allow_html=True)
+                #st.markdown(JOB_HTML_TEMPLATE_4.format(display(video12), display(video13), display(video14), display(video15), display(video16)), unsafe_allow_html=True)
 
 
 
