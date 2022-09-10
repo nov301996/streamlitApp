@@ -75,7 +75,7 @@ def main():
 
  	with nav2:
  		st.text("Search ")
- 	submit_search = st.form_submit_button(label='Search')
+ 		submit_search = st.form_submit_button(label='Search')
 
  	st.success("You searched for {}".format(keyword))
 
