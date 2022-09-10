@@ -4,3 +4,6 @@ nltk
 wand
 pytesseract
 Pillow
+cv2
+sklearn
+math
