@@ -1,24 +1,58 @@
 # Core Pkgs
-import streamlit as st 
+import streamlit as st
 import streamlit.components.v1 as stc
-import requests 
-
-base_url = "https://jobs.github.com/positions.json?description={}&location={}"
-
-# Fxn to Retrieve Data
-def get_data(url):
-	resp = requests.get(url)
-	return resp.json()
+import requests
+from IPython.display import YouTubeVideo
+import os
+import subprocess
 
 
-JOB_HTML_TEMPLATE = """
+JOB_HTML_TEMPLATE_4 = """
 <div style="width:100%;height:100%;margin:1px;padding:5px;position:relative;border-radius:5px;border-bottom-right-radius: 10px;
 box-shadow:0 0 1px 1px #eee; background-color: #31333F;
   border-left: 5px solid #6c6c6c;color:white;">
 <h4>{}</h4>
 <h4>{}</h4>
-<h5>{}</h5>
-<h6>{}</h6>
+<h5>{}</h4>
+<h6>{}</h4>
+</div>
+"""
+
+
+JOB_HTML_TEMPLATE_3 = """
+<div style="width:100%;height:100%;margin:1px;padding:5px;position:relative;border-radius:5px;border-bottom-right-radius: 10px;
+box-shadow:0 0 1px 1px #eee; background-color: #31333F;
+  border-left: 5px solid #6c6c6c;color:white;">
+<h4>{}</h4>
+<h4>{}</h4>
+<h5>{}</h4>
+</div>
+"""
+
+JOB_HTML_TEMPLATE_5 = """
+<div style="width:100%;height:100%;margin:1px;padding:5px;position:relative;border-radius:5px;border-bottom-right-radius: 10px;
+box-shadow:0 0 1px 1px #eee; background-color: #31333F;
+  border-left: 5px solid #6c6c6c;color:white;">
+<h4>{}</h4>
+<h4>{}</h4>
+<h5>{}</h4>
+<h4>{}</h4>
+<h5>{}</h4>
+</div>
+"""
+
+JOB_HTML_TEMPLATE_8 = """
+<div style="width:100%;height:100%;margin:1px;padding:5px;position:relative;border-radius:5px;border-bottom-right-radius: 10px;
+box-shadow:0 0 1px 1px #eee; background-color: #31333F;
+  border-left: 5px solid #6c6c6c;color:white;">
+<h4>{}</h4>
+<h4>{}</h4>
+<h5>{}</h4>
+<h4>{}</h4>
+<h5>{}</h4>
+<h5>{}</h4>
+<h4>{}</h4>
+<h5>{}</h4>
 </div>
 """
 
@@ -30,87 +64,65 @@ JOB_DES_HTML_TEMPLATE = """
 
 
 def main():
-	menu = ["Home","About"]
-	choice = st.sidebar.selectbox("Menu",menu)
 
-	st.title("DevDeeds -Search Jobs")
+    st.title("BITS Assignment 2 - Group 02")
 
-	if choice == "Home":
-		st.subheader("Home")
+    with st.form(key='searchform'):
+        nav1, nav2  = st.beta_columns([2, 1])
 
-		# Nav  Search Form
-		with st.form(key='searchform'):
-			nav1,nav2,nav3 = st.beta_columns([3,2,1])
+        with nav1:
+            keyword = st.text_input("Enter the keyword ")
 
-			with nav1:
-				search_term = st.text_input("Search Job")
-			with nav2:
-				location = st.text_input("Location")
+        with nav2:
+            st.text("Search ")
+            submit_search = st.form_submit_button(label='Search')
 
-			with nav3:
-				st.text("Search ")
-				submit_search = st.form_submit_button(label='Search')
+        st.success("You searched for {}".format(keyword))
 
-		st.success("You searched for {} in {}".format(search_term,location))
+        # Results
+        col1 = st.beta_columns([1])
 
-		# Results
-		col1, col2 = st.beta_columns([2,1])
+        with col1:
+            if submit_search:
+                if(keyword in ['Data Mining']):
+                    video1 = YouTubeVideo("VsYKqOokgaE")
+                    video2 = YouTubeVideo("4l4_BREP6ZI")
+                    video3 = YouTubeVideo("ZRZHwn")
+                    video4 = YouTubeVideo("bvWDe0z45-E")
+                    video5 = YouTubeVideo("6P7ceHFuG-o")
+                    video6 = YouTubeVideo("9OjRP0ZLKkk")
+                    video7 = YouTubeVideo("VcPWL9Nlozs")
+                    video8 = YouTubeVideo("aMfzqHNsLug")
 
-		with col1:
-			if submit_search:
-				# Create Search Query
-				search_url = base_url.format(search_term,location)
-				# st.write(search_url)
-				data = get_data(search_url)
-
-				# Number of Results
-				num_of_results = len(data)
-				st.subheader("Showing {} jobs".format(num_of_results))
-				# st.write(data)
-		
-
-				for i in data:
-					job_title = i['title']
-					job_location = i['location']
-					company = i['company']
-					company_url = i['company_url']
-					job_post_date = i['created_at']
-					job_desc = i['description']
-					job_howtoapply = i['how_to_apply']
-					st.markdown(JOB_HTML_TEMPLATE.format(job_title,company,job_location,job_post_date),
-						unsafe_allow_html=True)
-
-					# Description
-					with st.beta_expander("Description"):
-						stc.html(JOB_DES_HTML_TEMPLATE.format(job_desc),scrolling=True)
-
-					# How to Apply
-					with st.beta_expander("How To Apply"):
-						# stc.html(job_howtoapply) # For White Theme
-						stc.html(JOB_DES_HTML_TEMPLATE.format(job_howtoapply),scrolling=True) # For Dark Theme
+                    st.markdown(JOB_HTML_TEMPLATE_8.format(display(video1), display(video2), display(video3), display(video4),display(video5), display(video6), display(video7), display(video8)),unsafe_allow_html=True)
 
 
-		with col2:
-			with st.form(key='email_form'):
-				st.write("Be the first to get new jobs info")
-				email = st.text_input("Email")
+                if(keyword in ['Data Mining','clustering']):
+                    video9 = YouTubeVideo("9OjRP0ZLKkk")
+                    display(video9)
+                    video10 = YouTubeVideo("VcPWL9Nlozs")
+                    display(video10)
+                    video11 = YouTubeVideo("aMfzqHNsLug")
+                    display(video11)
 
-				submit_email = st.form_submit_button(label='Subscribe')
+                    st.markdown(JOB_HTML_TEMPLATE_3.format(display(video9), display(video10), display(video11)), unsafe_allow_html=True)
 
-				if submit_email:
-					st.success("A message was sent to {}".format(email))
+                if(keyword in ['Data Mining', 'Decision Tree']):
+                    video12 = YouTubeVideo("VsYKqOokgaE")
+                    display(video12)
+                    video13 = YouTubeVideo("4l4_BREP6ZI")
+                    display(video13)
+                    video14 = YouTubeVideo("ZRZHwn")
+                    display(video14)
+                    video15 = YouTubeVideo("bvWDe0z45-E")
+                    display(video15)
+                    video16 = YouTubeVideo("6P7ceHFuG-o")
+                    display(video16)
 
-
-
-
-
-
-
-	else:
-		st.subheader("About")
+                    st.markdown(JOB_HTML_TEMPLATE_4.format(display(video12), display(video13), display(video14), display(video15), display(video16)), unsafe_allow_html=True)
 
 
 
 
 if __name__ == '__main__':
-	main()
+    main()
