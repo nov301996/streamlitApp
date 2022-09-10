@@ -3,4 +3,4 @@ numpy
 nltk
 wand
 pytesseract
-PIL
+Pillow
