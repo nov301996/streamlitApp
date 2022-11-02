@@ -65,7 +65,7 @@ JOB_DES_HTML_TEMPLATE = """
 
 def main():
 
- 	st.title("BITS Assignment 2 - Group 02")
+ 	st.title("Testing")
 
  	with st.form(key='searchform'):
  		nav1, nav2 = st.beta_columns([2, 1])
